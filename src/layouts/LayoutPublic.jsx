@@ -1,8 +1,10 @@
+import { Outlet } from "react-router-dom"
+
 function LayoutPublic() {
     return (
       <>
         <header></header>
-        <main></main>
+        <main><Outlet/></main>
         <footer></footer>
       </>
     )
