@@ -7,8 +7,6 @@ function SearchResults({results}) {
     useEffect(() => {
         if (results) {
             setHtmlContent(results)
-            console.log(results)
-            console.log("Actualizando")
         }   
     }, [results])
     
@@ -20,6 +18,7 @@ function SearchResults({results}) {
                     htmlContent.map((result) => (
                         <li key={result.key}>
                             <Link to={`/book/${result.key.substr(7)}`}>{result.title}</Link>
+                            <img src={`https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`}></img>
                         </li>
                     ))
                 ): (<>Sin resultados</>)
