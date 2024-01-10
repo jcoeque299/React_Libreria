@@ -4,7 +4,7 @@ import { useState } from "react"
 
 function SearchForm({setUrl}) {
     const [queries, setQueries] = useState({
-        query: "a",
+        query: "",
         queryType: "title"
     })
     
