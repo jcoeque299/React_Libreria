@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Book, {loaderBook} from "../pages/Book";
-import Favorites from "../pages/Favorites";
+import Favorites, {loaderFavourites} from "../pages/Favorites";
 import Contact from "../pages/Contact";
 import Access from "../pages/Access";
 import NotFound from "../pages/NotFound";
@@ -32,7 +32,8 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: "/favorites",
-                        element: <Favorites/>
+                        element: <Favorites/>,
+                        loader: loaderFavourites
                     },
                     {
                         path: "/contact",
