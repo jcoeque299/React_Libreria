@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 
 function Favorites() {
   const {favouritedBooks} = useLoaderData()
-
     return (
       <>
         <ul>

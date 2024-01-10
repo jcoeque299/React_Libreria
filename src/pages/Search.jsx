@@ -7,7 +7,7 @@ function Search() {
 
     const setUrl = queries => {
       const {query, queryType} = queries
-      const url = `https://openlibrary.org/search.json?${queryType}=${query.replaceAll(" ","+")}&fields=key,title,cover_i,ratings_average,author_name`
+      const url = `https://openlibrary.org/search.json?${queryType}=${query.replaceAll(" ","+")}&fields=key,title,cover_i,ratings_average,author_name,id_amazon`
       sendRequest(url)
     }
     
