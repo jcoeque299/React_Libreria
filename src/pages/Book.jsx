@@ -2,21 +2,32 @@ import { useEffect, useState } from "react"
 import { Link, useLoaderData } from "react-router-dom"
 
 function Book() {
-  let favouritedBooks = localStorage.getItem("favourites") ?? []
+  let favouritedBooks = JSON.parse(localStorage.getItem("favouritedBooks")) ?? []
   
   const addToFavourites = () => {
     favouritedBooks = [...favouritedBooks, book]
     localStorage.setItem("favouritedBooks", JSON.stringify(favouritedBooks))
-    checkIfFavourited()
+    setFavouriteButton({
+      function: removeFromFavourites,
+      src: "../images/starred.png"
+    })
   }
 
   const removeFromFavourites = () => {
     favouritedBooks = favouritedBooks.filter((removeBook) => {removeBook.key !== `/works/${book.key}`})
     localStorage.setItem("favouritedBooks", JSON.stringify(favouritedBooks))
-    checkIfFavourited()
+    setFavouriteButton({
+      function: addToFavourites,
+      src: "../images/notStarred.png"
+    })
   }
 
-  const checkIfFavourited = () => {
+  const [favouriteButton, setFavouriteButton] = useState({
+    function: addToFavourites,
+    src: "../images/notStarred.png"
+  })
+
+  useEffect(() => {
     if (favouritedBooks.some((checkBook)=> checkBook.key === book.key)) {
       setFavouriteButton({
         function: removeFromFavourites,
@@ -28,12 +39,7 @@ function Book() {
       function: addToFavourites,
       src: "../images/notStarred.png"
     })
-  }
-
-  const [favouriteButton, setFavouriteButton] = useState({
-    function: addToFavourites,
-    src: "../images/notStarred.png"
-  })
+  }, [])
 
   const {book} = useLoaderData()
   const coverUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
@@ -54,7 +60,7 @@ function Book() {
         </article>
         <aside className="book-info-buttons">
           <button onClick={favouriteButton.function}><img src={favouriteButton.src}></img></button>
-          <Link to={`https://amazon.com/dp/${book.id_amazon}`}><img src="../images/amazon.png" id="amazonButton"></img></Link>
+          <Link to={`https://amazon.com/dp/${book.id_amazon}`} target="_blank"><img src="../images/amazon.png" id="amazonButton"></img></Link>
         </aside> 
       </section>    
     </>
@@ -64,6 +70,7 @@ function Book() {
 export default Book
 
 export const loaderBook = async({params}) => {
+  //Añadir código para revisar si el libro está guardado en localstorage, y traerlo desde ahi
   const data = await fetch(`https://openlibrary.org/search.json?q=${params.key}&fields=key,title,cover_i,ratings_average,author_name,id_amazon,first_publish_year,number_of_pages_median,first_sentence`)
   const books = await data.json()
   const book = books.docs.filter((filteredBook) => filteredBook.key === `/works/${params.key}`)[0]

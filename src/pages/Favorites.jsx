@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 function Favorites() {
+  //Las covers estan rotas en la página de favoritos. Solo está la ID, no el enlace completo. Haz que las imagenes se guarden en el localstorage
   const {favouritedBooks} = useLoaderData()
     return (
       <>
