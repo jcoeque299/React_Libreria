@@ -20,19 +20,19 @@ function Book() {
     if (favouritedBooks.some((checkBook)=> checkBook.key === book.key)) {
       setFavouriteButton({
         function: removeFromFavourites,
-        text: "Eliminar de favoritos"
+        src: "../images/starred.png"
       })
       return
     }
     setFavouriteButton({
       function: addToFavourites,
-      text: "Añadir a favoritos"
+      src: "../images/notStarred.png"
     })
   }
 
   const [favouriteButton, setFavouriteButton] = useState({
     function: addToFavourites,
-    text: "Añadir a favoritos"
+    src: "../images/notStarred.png"
   })
 
   const {book} = useLoaderData()
@@ -53,7 +53,7 @@ function Book() {
           <p>Páginas: {book.number_of_pages_median}</p>
         </article>
         <aside className="book-info-buttons">
-          <button onClick={favouriteButton.function}><img src="../images/star.png"></img></button>
+          <button onClick={favouriteButton.function}><img src={favouriteButton.src}></img></button>
           <Link to={`https://amazon.com/dp/${book.id_amazon}`}><img src="../images/amazon.png" id="amazonButton"></img></Link>
         </aside> 
       </section>    

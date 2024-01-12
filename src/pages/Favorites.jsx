@@ -5,18 +5,19 @@ function Favorites() {
   const {favouritedBooks} = useLoaderData()
     return (
       <>
-        <ul>
+        <section className="book-card-group-favourites">
             {
                 favouritedBooks.length > 0? (
                     favouritedBooks.map((favouritedBook) => (
-                        <li key={favouritedBook.key}>
-                            <Link to={`/book/${favouritedBook.key.substr(7)}`}>{favouritedBook.title}</Link>
-                            <img src={`https://covers.openlibrary.org/b/id/${favouritedBook.cover_i}-M.jpg`}></img>
-                        </li>
+                        <article key={favouritedBook.key} className="book-card">
+                            <img src={favouritedBook.cover_i}></img>
+                            <p>{favouritedBook.title}</p>
+                            <Link to={`/book/${favouritedBook.key.substr(7)}`}>Ver libro</Link>
+                        </article>
                     ))
-                ): (<>Sin favoritos</>)
+                ): (<p className="noResults">Sin favoritos</p>)
             }
-        </ul>
+        </section>
       </>
     )
   }

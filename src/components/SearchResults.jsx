@@ -8,7 +8,7 @@ function SearchResults({results}) {
         if (results) {
             results.forEach((result) => {
                 if (!result.cover_i) {
-                    result.cover_i = `images/bookNotFound.jpg`
+                    result.cover_i = ``
                 }
                 else {
                     result.cover_i = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`
@@ -30,7 +30,7 @@ function SearchResults({results}) {
                             <Link to={`/book/${result.key.substr(7)}`}>Ver libro</Link>
                         </article>
                     ))
-                ): (<>Sin resultados</>)
+                ): (<p className="noResults">Sin resultados</p>)
             }
         </section>
         </>

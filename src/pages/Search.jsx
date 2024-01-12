@@ -14,7 +14,6 @@ function Search() {
     const sendRequest = async(url) => {
       const data = await fetch(url)
       const books = await data.json()
-      console.log(books.docs)
       setResults(books.docs)
     }
 

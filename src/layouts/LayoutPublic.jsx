@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 
 function LayoutPublic() {
@@ -10,7 +10,12 @@ function LayoutPublic() {
                 <img src="../images/logo.png"></img>
                 <figcaption>MyBrary</figcaption>
             </figure>
-            {/*Añadir menu de hamburguesa*/}
+            <ul className="links">
+              <li><Link to={"/"}>Inicio</Link></li>
+              <li><Link to={"/search"}>Búsqueda</Link></li>
+              <li><Link to={"/favorites"}>Favoritos</Link></li>
+              <li><Link to={"/forum"}>Foro</Link></li>
+            </ul>
         </nav>
         </header>
         <main>

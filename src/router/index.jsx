@@ -4,7 +4,7 @@ import Search from "../pages/Search";
 import Book, {loaderBook} from "../pages/Book";
 import Favorites, {loaderFavourites} from "../pages/Favorites";
 import Contact from "../pages/Contact";
-import Access from "../pages/Access";
+import Forum from "../pages/Forum";
 import NotFound from "../pages/NotFound";
 import LayoutPublic from "../layouts/LayoutPublic";
 
@@ -40,8 +40,8 @@ export const router = createBrowserRouter([
                         element: <Contact/>
                     },
                     {
-                        path: "/access",
-                        element: <Access/>
+                        path: "/forum",
+                        element: <Forum/>
                     }
                 ]
             }
