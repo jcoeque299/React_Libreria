@@ -1,18 +1,21 @@
 import { Outlet } from "react-router-dom"
 
+
 function LayoutPublic() {
     return (
       <>
         <header>
-          <nav>
+        <nav>
             <figure>
                 <img src="../images/logo.png"></img>
                 <figcaption>MyBrary</figcaption>
             </figure>
             {/*Añadir menu de hamburguesa*/}
-          </nav>
+        </nav>
         </header>
-        <main><Outlet/></main>
+        <main>
+          <Outlet/>
+        </main>
         <footer></footer>
       </>
     )

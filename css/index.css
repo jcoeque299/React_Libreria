@@ -62,23 +62,138 @@ main figcaption {
 
 main section {
     margin-top: 10em;
+    width: 100%;
 }
 
 main section h2 {
     text-align: center;
 }
 
-main section section {
-    margin-top: 5em;
+.home-card-group {
+    margin-top: 2em;
     margin-bottom: 10em;
     display: flex;
-    justify-content: space-between;
-    margin-left: 40px;
-    margin-right: 40px
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-main section section article {
-    width: 33%
+.home-card {
+    width: 30%;
+    background-color: #D4A272;
+    border-radius: 15px;
+    margin-right: 20px;
+}
+
+.home-card-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.book-card-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+
+.book-card {
+    background-color: #D4A272;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50%;
+    width: 20%;
+    padding: 0.5em;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 0em;
+}
+
+.book-card img {
+    margin-top: 3em;
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.book-card p {
+    margin-top: 2.5em;
+    font-size: 20px;
+    flex: 1 0 auto;
+}
+
+.book-card a {
+    margin-top: 2.5em;
+    width: 50%;
+    background-color: #a87f59;
+    border-radius: 15px;
+    line-height: 3em;
+    color: black;
+}
+.book-card a:hover {
+    color: white;
+}
+
+.book-info {
+    display: grid;
+    grid-template-columns: 30% 60% 10%;
+    margin: 5em auto 5em auto;
+    background-color: #D4A272;
+    padding: 2em;
+    width: 60%;
+    border-radius: 15px;
+}
+
+.book-info-buttons {
+    grid-column: 3;
+    padding-left: 2em;
+}
+
+.book-info-buttons button {
+    background-color: transparent;
+    border:0;
+    width:50%;
+    display: block;
+    margin: 2em auto;
+}
+
+.book-info-buttons button:hover {
+    cursor: pointer;
+}
+
+#amazonButton {
+    width: 50%;
+    display: block;
+    margin: 2em auto;
+}
+
+.book-info-content {
+    margin:0;
+    grid-column: 2;
+}
+
+.book-info-content h2, .book-info-content h3, .book-info-content p {
+    text-align: left;
+    margin:0;
+    margin-bottom: 2em;
+}
+
+.book-info-image {
+    grid-column: 1;
+}
+
+.book-info-image img {
+    height: 400px;
+    width: 300px;
+}
+
+main section section article p {
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 24px;
 }
 
 article {
@@ -90,6 +205,19 @@ article h2 {
     text-align: center;
     margin-bottom: 8em;
     font-family: 'Lora';
+}
+
+.search-form {
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+}
+
+fieldset {
+    border: 0;
+    margin-bottom: 0.5em;
+    padding: 0;
+    text-align: center;
 }
 
 /*Footer style*/

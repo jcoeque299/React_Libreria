@@ -24,24 +24,30 @@ function SearchForm({setUrl}) {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input
-                    name="query"
-                    placeholder="Introduce titulo"
-                    type="text"
-                    onChange={handleChange}
-                    value={queries.query}
-                ></input>
-                <select
-                    name="queryType"
-                    value={queries.queryType}
-                    onChange={handleChange}
-                >
-                    <option value="title">Titulo</option>
-                    <option value="author">Autor</option>
-                </select>
-                <button
-                    type="submit"
-                >Buscar</button>
+                <fieldset>
+                    <input
+                        name="query"
+                        placeholder="Introduce titulo"
+                        type="text"
+                        onChange={handleChange}
+                        value={queries.query}
+                    ></input>
+                </fieldset>
+                <fieldset>
+                    <select
+                        name="queryType"
+                        value={queries.queryType}
+                        onChange={handleChange}
+                    >
+                        <option value="title">Titulo</option>
+                        <option value="author">Autor</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <button
+                        type="submit"
+                    >Buscar</button>
+                </fieldset>              
             </form>
         </>
     )

@@ -40,12 +40,23 @@ function Book() {
   
   return (
     <>
-      <h2>{book.title}</h2>
-      <p>{book.author_name}</p>
-      <p>{book.ratings_average}</p>
-      <img src={coverUrl}></img>
-      <button onClick={favouriteButton.function}>{favouriteButton.text}</button>
-      <Link to={`https://amazon.com/dp/${book.id_amazon}`}>Ver en Amazon</Link>
+      <section className="book-info">
+        <aside className="book-info-image">
+        <img src={coverUrl}></img>
+        </aside>
+        <article className="book-info-content">
+          <h2>{book.title}</h2>
+          <h3>{book.author_name}</h3>
+          <p>{book.first_sentence}</p>
+          <p>Valoracion: {book.ratings_average}/5</p>
+          <p>Año: {book.first_publish_year}</p>
+          <p>Páginas: {book.number_of_pages_median}</p>
+        </article>
+        <aside className="book-info-buttons">
+          <button onClick={favouriteButton.function}><img src="../images/star.png"></img></button>
+          <Link to={`https://amazon.com/dp/${book.id_amazon}`}><img src="../images/amazon.png" id="amazonButton"></img></Link>
+        </aside> 
+      </section>    
     </>
   )
 }
@@ -53,7 +64,7 @@ function Book() {
 export default Book
 
 export const loaderBook = async({params}) => {
-  const data = await fetch(`https://openlibrary.org/search.json?q=${params.key}&fields=key,title,cover_i,ratings_average,author_name,id_amazon`)
+  const data = await fetch(`https://openlibrary.org/search.json?q=${params.key}&fields=key,title,cover_i,ratings_average,author_name,id_amazon,first_publish_year,number_of_pages_median,first_sentence`)
   const books = await data.json()
   const book = books.docs.filter((filteredBook) => filteredBook.key === `/works/${params.key}`)[0]
   book.id_amazon.forEach((amazonKey) => {
