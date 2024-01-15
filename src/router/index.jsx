@@ -7,6 +7,8 @@ import Contact from "../pages/Contact";
 import Forum from "../pages/Forum";
 import NotFound from "../pages/NotFound";
 import LayoutPublic from "../layouts/LayoutPublic";
+import CreatePost from "../pages/CreatePost";
+import Post, {loaderPost} from "../pages/Post";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +44,15 @@ export const router = createBrowserRouter([
                     {
                         path: "/forum",
                         element: <Forum/>
+                    },
+                    {
+                        path: "/publish",
+                        element: <CreatePost/>
+                    },
+                    {
+                        path: "/post/:id",
+                        element: <Post/>,
+                        loader: loaderPost
                     }
                 ]
             }

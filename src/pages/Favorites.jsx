@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom"
 import { Link } from "react-router-dom"
+import SearchImage from "../components/SearchImage"
 
 function Favorites() {
   //Las covers estan rotas en la página de favoritos. Solo está la ID, no el enlace completo. Haz que las imagenes se guarden en el localstorage
@@ -11,7 +12,7 @@ function Favorites() {
                 favouritedBooks.length > 0? (
                     favouritedBooks.map((favouritedBook) => (
                         <article key={favouritedBook.key} className="book-card">
-                            <img src={favouritedBook.cover_i}></img>
+                            <SearchImage cover={favouritedBook.cover_i}/>
                             <p>{favouritedBook.title}</p>
                             <Link to={`/book/${favouritedBook.key.substr(7)}`}>Ver libro</Link>
                         </article>

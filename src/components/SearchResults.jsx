@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { useNavigation } from "react-router-dom"
 import SearchImage from "./SearchImage"
 
 function SearchResults({results}) {
