@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { useNavigation } from "react-router-dom"
+import SearchImage from "./SearchImage"
 
 function SearchResults({results}) {
     const [htmlContent, setHtmlContent] = useState("")
@@ -25,12 +27,12 @@ function SearchResults({results}) {
                 htmlContent.length > 0? (
                     htmlContent.map((result) => (
                         <article key={result.key} className="book-card">
-                            <img src={result.cover_i}></img>
+                            <SearchImage cover={result.cover_i}/>
                             <p>{result.title}</p>
                             <Link to={`/book/${result.key.substr(7)}`}>Ver libro</Link>
                         </article>
                     ))
-                ): (<p className="noResults">Sin resultados</p>)
+                ): (<p className="noResults"></p>)
             }
         </section>
         </>
