@@ -16,7 +16,8 @@ function PostForm() {
         const savePost = {
             id: new Date().getTime(),
             title: post.title,
-            text: post.text
+            text: post.text,
+            responses: []
         }
         console.log(savePost)
         posts = [...posts, savePost]

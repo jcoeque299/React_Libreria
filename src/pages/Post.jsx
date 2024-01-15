@@ -1,15 +1,26 @@
-import { useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 
 const posts = JSON.parse(localStorage.getItem("posts")) ?? []
 
 function Post() {
     const post = useLoaderData()
-    console.log(post)
+    
+    const responses = post.responses
 
     return (
         <>
             <p>{post.title}</p>
             <p>{post.text}</p>
+            {
+                responses.length > 0? (
+                    responses.map((response) => (
+                        <article key={response.id}>
+                            <p>{response.text}</p>
+                        </article>
+                    ))
+                ): (<p className="noResults"></p>)
+            }
+            <Link to={`/respond/${post.id}`}>Responder</Link>
         </>
     )
 }

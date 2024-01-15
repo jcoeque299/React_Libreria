@@ -9,6 +9,7 @@ import NotFound from "../pages/NotFound";
 import LayoutPublic from "../layouts/LayoutPublic";
 import CreatePost from "../pages/CreatePost";
 import Post, {loaderPost} from "../pages/Post";
+import Respond, { loaderResponse } from "../pages/Respond";
 
 export const router = createBrowserRouter([
     {
@@ -53,6 +54,11 @@ export const router = createBrowserRouter([
                         path: "/post/:id",
                         element: <Post/>,
                         loader: loaderPost
+                    },
+                    {
+                        path: "/respond/:id",
+                        element: <Respond/>,
+                        loader: loaderResponse
                     }
                 ]
             }
