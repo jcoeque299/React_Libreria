@@ -274,6 +274,12 @@ main section h2 {
     text-align: center;
 }
 
+.error404 {
+    text-align: center;
+    margin-top: 10em;
+    margin-bottom: 20em;
+}
+
 #amazonButton {
     width: 50%;
     display: block;

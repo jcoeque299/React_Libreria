@@ -54,7 +54,7 @@ function Book() {
           <h2>{book.title}</h2>
           <h3>{book.author_name[0]}</h3>
           <p>{book.first_sentence}</p>
-          <p>Valoracion: {book.ratings_average}/5</p>
+          <p>Valoracion: {book.ratings_average.toString().substr(0,3)}/5</p>
           <p>Año: {book.first_publish_year}</p>
           <p>Páginas: {book.number_of_pages_median}</p>
         </article>
