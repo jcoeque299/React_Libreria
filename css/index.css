@@ -360,12 +360,12 @@ main section h2 {
     width: 100%;
 }
 
-.post-form {
+.form {
     margin-top: 4em;
     margin-bottom: 14em;
 }
 
-.post-form input, .post-form textarea {
+.form input, .form textarea {
     width: 25%;
     border-style: solid;
     width: 25%;
@@ -373,7 +373,7 @@ main section h2 {
     border-radius: 10px;
 }
 
-.post-form textarea {
+.form textarea {
     height: 15em;
 }
 
@@ -381,6 +381,11 @@ main section section article p {
     padding-left: 1em;
     padding-right: 1em;
     font-size: 24px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 2em;
 }
 
 article {
@@ -433,7 +438,11 @@ footer {
 
 }
 footer aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 30%;
+    height: 100%;
     background-color: #D4A272;
     margin-right: 20px;
 }
@@ -463,4 +472,10 @@ footer img {
 
 #redesSociales {
     text-align: center;
+    
+}
+
+#redesSociales .footer-card-title {
+    margin-top: 0;
+    margin-bottom: 2em;
 }

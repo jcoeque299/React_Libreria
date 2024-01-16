@@ -1,36 +1,20 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 
-function PostForm() {
+function ContactForm() {
 
-    let posts = JSON.parse(localStorage.getItem("posts")) ?? []
-
-    const navigate = useNavigate()
-
-    const [post, setPosts] = useState({
-        id: "",
+    const [ticket, setTicket] = useState({
         title: "",
         text: ""
     })
 
     const handleSubmit = e => {
         e.preventDefault()
-        const savePost = {
-            id: new Date().getTime(),
-            title: post.title,
-            text: post.text,
-            responses: []
-        }
-        console.log(savePost)
-        posts = [...posts, savePost]
-        localStorage.setItem("posts", JSON.stringify(posts))
-        return navigate(`/post/${savePost.id}`)
     }
 
     const handleChange = e => {
         const {name, type, value} = e.target
-        setPosts({
-            ...post,
+        setTicket({
+            ...ticket,
             [name]:type === "text"? value:value
         })
     }
@@ -38,7 +22,6 @@ function PostForm() {
     return (
         <>
             <section className="form">
-                
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <input
@@ -46,20 +29,20 @@ function PostForm() {
                         placeholder="Introduce asunto"
                         type="text"
                         onChange={handleChange}
-                        value={post.title}
+                        value={ticket.title}
                         ></input>
                     </fieldset>
                     <fieldset>
                         <textarea
                         name="text"
-                        placeholder="Introduce cuerpo del post"
+                        placeholder="Introduce cuerpo del ticket de soporte"
                         onChange={handleChange}
-                        value={post.text}
+                        value={ticket.text}
                         >
                         </textarea>
                     </fieldset>
                     <fieldset>
-                        <button type="submit">Publicar</button>
+                        <button type="submit">Enviar</button>
                     </fieldset>
                 </form>
             </section>
@@ -67,4 +50,4 @@ function PostForm() {
     )
 }
 
-export default PostForm
+export default ContactForm

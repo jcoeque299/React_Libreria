@@ -38,7 +38,7 @@ function ResponseForm(postID) {
 
     return (
         <>
-            <section className="post-form">
+            <section className="form">
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <textarea

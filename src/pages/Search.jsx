@@ -24,6 +24,7 @@ function Search() {
 
     return (
       <>
+        <h2>Buscar libro</h2>
         <section className="search-form">
           <SearchForm setUrl = {setUrl}/>
         </section>

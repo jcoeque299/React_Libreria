@@ -7,6 +7,7 @@ function Respond() {
 
     return (
         <>
+            <h2>Responder post</h2>
             <ResponseForm postID={postID}/>
         </>
     )

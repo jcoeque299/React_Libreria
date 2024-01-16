@@ -7,6 +7,7 @@ function Favorites() {
   const {favouritedBooks} = useLoaderData()
     return (
       <>
+        <h2>Favoritos</h2>
         <section className="book-card-group-favourites">
             {
                 favouritedBooks.length > 0? (
