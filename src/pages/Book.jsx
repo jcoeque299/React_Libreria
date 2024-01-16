@@ -10,7 +10,7 @@ function Book() {
     localStorage.setItem("favouritedBooks", JSON.stringify(favouritedBooks))
     setFavouriteButton({
       function: removeFromFavourites,
-      src: "../images/starred.png"
+      src: "/starred.png"
     })
   }
 
@@ -19,26 +19,26 @@ function Book() {
     localStorage.setItem("favouritedBooks", JSON.stringify(favouritedBooks))
     setFavouriteButton({
       function: addToFavourites,
-      src: "../images/notStarred.png"
+      src: "/notStarred.png"
     })
   }
 
   const [favouriteButton, setFavouriteButton] = useState({
     function: addToFavourites,
-    src: "../images/notStarred.png"
+    src: "/notStarred.png"
   })
 
   useEffect(() => {
     if (favouritedBooks.some((checkBook)=> checkBook.key === book.key)) {
       setFavouriteButton({
         function: removeFromFavourites,
-        src: "../images/starred.png"
+        src: "/starred.png"
       })
       return
     }
     setFavouriteButton({
       function: addToFavourites,
-      src: "../images/notStarred.png"
+      src: "/notStarred.png"
     })
   }, [])
 
@@ -60,7 +60,7 @@ function Book() {
         </article>
         <aside className="book-info-buttons">
           <button onClick={favouriteButton.function}><img src={favouriteButton.src}></img></button>
-          {book.id_amazon ? <Link to={`https://amazon.com/dp/${book.id_amazon}`} target="_blank"><img src="../images/amazon.png" id="amazonButton"></img></Link> : null}
+          {book.id_amazon ? <Link to={`https://amazon.com/dp/${book.id_amazon}`} target="_blank"><img src="/amazon.png" id="amazonButton"></img></Link> : null}
         </aside> 
       </section>    
     </>

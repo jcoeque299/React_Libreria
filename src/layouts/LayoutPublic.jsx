@@ -6,7 +6,7 @@ function LayoutPublic() {
         <header>
         <nav>
             <figure>
-                <img src="../images/logo.png"></img>
+                <img src="/logo.png"></img>
                 <figcaption>MyBrary</figcaption>
             </figure>
             <ul className="links">
@@ -39,8 +39,8 @@ function LayoutPublic() {
             Redes sociales
             </p>
             <figure>
-              <img src="../images/twitter.png"></img>
-              <img src="../images/instagram.png"></img>
+              <img src="/twitter.png"></img>
+              <img src="/instagram.png"></img>
             </figure>
           </aside>
         </footer>

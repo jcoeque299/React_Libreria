@@ -2,7 +2,7 @@ function HomeImage() {
     return (
         <>
             <figure>
-                <img src="images/inicio.jpg"></img>
+                <img src="/inicio.jpg"></img>
                 <figcaption>Cualquier libro, cualquier edicion<br/>Todo al alcance de un click</figcaption>
             </figure>
         </>
