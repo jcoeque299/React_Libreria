@@ -38,16 +38,22 @@ function ResponseForm(postID) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <textarea
-                name="text"
-                placeholder="Introduce cuerpo de la respuesta"
-                onChange={handleChange}
-                value={response.text}
-                >
-                </textarea>
-                <button type="submit">Responder</button>
-            </form>
+            <section className="post-form">
+                <form onSubmit={handleSubmit}>
+                    <fieldset>
+                        <textarea
+                        name="text"
+                        placeholder="Introduce cuerpo de la respuesta"
+                        onChange={handleChange}
+                        value={response.text}
+                        >
+                        </textarea>
+                    </fieldset>
+                    <fieldset>
+                        <button type="submit">Responder</button>
+                    </fieldset>
+                </form>
+            </section>
         </>
     )
 }

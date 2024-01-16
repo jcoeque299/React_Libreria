@@ -6,16 +6,19 @@ function Forum() {
 
     return (
         <>
-            <Link to={"/publish"}>Crear nuevo post</Link>
-            {
-                posts.length > 0? (
-                    posts.map((post) => (
-                        <article key={post.id}>
-                            <Link to={`/post/${post.id}`}>{post.title}</Link>
-                        </article>
-                    ))
-                ): (<p className="noResults"></p>)
-            }
+            <section className="post-list">
+                <Link to={"/publish"}>Crear nuevo post</Link>
+                {
+                    posts.length > 0? (
+                        posts.map((post) => (
+                            <article key={post.id} className="post-list-post">
+                                <Link to={`/post/${post.id}`}>{post.title}</Link>
+                                <p>{`${new Date(post.id).getDate()}/${new Date(post.id).getMonth()+1}/${new Date(post.id).getFullYear()}`}</p>
+                            </article>
+                        ))
+                    ): (<p className="noResults"></p>)
+                }
+            </section>
         </>
     )
 }

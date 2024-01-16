@@ -6,21 +6,24 @@ function Post() {
     
     const responses = post.responses
 
-
     return (
         <>
-            <p>{post.title}</p>
-            <p>{post.text}</p>
-            {
-                responses.length > 0? (
-                    responses.map((response) => (
-                        <article key={response.id}>
-                            <p>{response.text}</p>
-                        </article>
-                    ))
-                ): (<p className="noResults"></p>)
-            }
-            <Link to={`/respond/${post.id}`}>Responder</Link>
+            <section className="post-info">
+                <article className="post">
+                    <h2>{post.title}</h2>
+                    <p>{post.text}</p>
+                    <Link to={`/respond/${post.id}`}>Responder</Link>
+                </article>
+                {
+                        responses.length > 0? (
+                            responses.map((response) => (
+                                <article className="response">
+                                    <p>{response.text}</p>
+                                    </article>
+                            ))
+                        ): (<p className="noResults"></p>)
+                    }           
+            </section>
         </>
     )
 }

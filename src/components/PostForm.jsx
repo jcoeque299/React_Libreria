@@ -37,23 +37,32 @@ function PostForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input
-                name="title"
-                placeholder="Introduce asunto"
-                type="text"
-                onChange={handleChange}
-                value={post.title}
-                ></input>
-                <textarea
-                name="text"
-                placeholder="Introduce cuerpo del post"
-                onChange={handleChange}
-                value={post.text}
-                >
-                </textarea>
-                <button type="submit">Publicar</button>
-            </form>
+            <section className="post-form">
+                
+                <form onSubmit={handleSubmit}>
+                    <fieldset>
+                        <input
+                        name="title"
+                        placeholder="Introduce asunto"
+                        type="text"
+                        onChange={handleChange}
+                        value={post.title}
+                        ></input>
+                    </fieldset>
+                    <fieldset>
+                        <textarea
+                        name="text"
+                        placeholder="Introduce cuerpo del post"
+                        onChange={handleChange}
+                        value={post.text}
+                        >
+                        </textarea>
+                    </fieldset>
+                    <fieldset>
+                        <button type="submit">Publicar</button>
+                    </fieldset>
+                </form>
+            </section>
         </>
     )
 }

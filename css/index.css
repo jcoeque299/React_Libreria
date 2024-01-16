@@ -267,6 +267,116 @@ main section h2 {
     width: 300px;
 }
 
+.post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    word-wrap: break-word;
+    margin: 0;
+    margin-top: 2em;
+    margin-bottom: 20em;
+}
+
+.post-list a {
+    max-width: 75%;
+    background-color: #a87f59;
+    margin-bottom: 2em;
+    border-radius: 15px;
+    color: black;
+    line-height: 3em;
+    padding: 1em;
+}
+
+.post-list a:hover {
+    color: white;
+}
+
+.post-list-post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    background-color: #D4A272;
+    width: 46%;
+    border-radius: 15px;
+}
+
+.post-list-post a {
+    background-color: #D4A272;
+    text-decoration: underline;
+    margin: 0;
+}
+
+.post-list-post a, .post-list-post p {
+    padding: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.post-info {
+    margin: 0;
+    margin-bottom: 15em;
+}
+
+.post, .response {
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    margin: 5em auto 3em auto;
+    background-color: #D4A272;
+    padding: 1em;
+    width: 58%;
+    border-radius: 15px;
+}
+
+.post p {
+    width: 100%;
+    margin-bottom: 4em;
+}
+
+.post h2 {
+    font-size: 20px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+    text-align: start;
+}
+
+.post a {
+    max-width: 75%;
+    background-color: #a87f59;
+    border-radius: 15px;
+    color: black;
+    line-height: 3em;
+    padding: 0.5em;
+}
+
+.post a:hover {
+    color: white;
+}
+
+.response p {
+    width: 100%;
+}
+
+.post-form {
+    margin-top: 4em;
+    margin-bottom: 14em;
+}
+
+.post-form input, .post-form textarea {
+    width: 25%;
+    border-style: solid;
+    width: 25%;
+    height: 2em;
+    border-radius: 10px;
+}
+
+.post-form textarea {
+    height: 15em;
+}
+
 main section section article p {
     padding-left: 1em;
     padding-right: 1em;
