@@ -1,8 +1,5 @@
-# React + Vite
+# Proyecto React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mi proyecto consiste en una página web para buscar libros, por título o autor, con la posibilidad de añadirlo a una lista de favoritos. Además, la página tiene un foro para conectar con otros usuarios a través de posts
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Enlace a la página desplegada: https://mybrary-react.netlify.app/
