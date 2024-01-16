@@ -1,11 +1,14 @@
+import { useEffect, useState } from "react"
 import { Link, useLoaderData } from "react-router-dom"
 
-const posts = JSON.parse(localStorage.getItem("posts")) ?? []
+
 
 function Post() {
+
     const post = useLoaderData()
     
     const responses = post.responses
+
 
     return (
         <>
@@ -28,6 +31,7 @@ function Post() {
 export default Post
 
 export const loaderPost = ({params}) => {
+    const posts = JSON.parse(localStorage.getItem("posts")) ?? []
     let foundPost = ""
     posts.forEach((post) => {
         if (post.id === parseInt(params.id)) {
