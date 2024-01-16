@@ -18,7 +18,7 @@ function Favorites() {
                 favouritedBooks.length > 0? (
                     favouritedBooks.map((favouritedBook) => (
                         <article key={favouritedBook.key} className="book-card">
-                            <SearchImage cover={favouritedBook.cover_i}/>
+                            <SearchImage cover={`https://covers.openlibrary.org/b/id/${favouritedBook.cover_i}-M.jpg`}/>
                             <p>{favouritedBook.title}</p>
                             <Link to={`/book/${favouritedBook.key.substr(7)}`} onClick={() => setIsLoading(true)}>Ver libro</Link>
                         </article>

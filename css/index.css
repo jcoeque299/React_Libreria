@@ -282,6 +282,7 @@ main section h2 {
 
 .book-info-content {
     margin:0;
+    margin-left: 2em;
     grid-column: 2;
 }
 
@@ -296,15 +297,15 @@ main section h2 {
 }
 
 .book-info-image img {
-    height: 400px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .post-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    word-wrap: break-word;
     margin: 0;
     margin-top: 2em;
     margin-bottom: 20em;
@@ -318,6 +319,7 @@ main section h2 {
     color: black;
     line-height: 3em;
     padding: 0.5em;
+    overflow: hidden;
 }
 
 .post-list a:hover {
@@ -339,6 +341,7 @@ main section h2 {
     background-color: #D4A272;
     text-decoration: underline;
     margin: 0;
+    max-width: 65%;
 }
 
 .post-list-post a, .post-list-post p {
