@@ -16,7 +16,7 @@ function Forum() {
                                 <p>{`${new Date(post.id).getDate()}/${new Date(post.id).getMonth()+1}/${new Date(post.id).getFullYear()}`}</p>
                             </article>
                         ))
-                    ): (<p className="noResults"></p>)
+                    ): (<p className="noPosts">Sin posts</p>)
                 }
             </section>
         </>
