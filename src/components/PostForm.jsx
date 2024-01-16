@@ -1,9 +1,11 @@
 import { useState } from "react"
-import { redirect } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function PostForm() {
 
     let posts = JSON.parse(localStorage.getItem("posts")) ?? []
+
+    const navigate = useNavigate()
 
     const [post, setPosts] = useState({
         id: "",
@@ -22,6 +24,7 @@ function PostForm() {
         console.log(savePost)
         posts = [...posts, savePost]
         localStorage.setItem("posts", JSON.stringify(posts))
+        return navigate(`/post/${savePost.id}`)
     }
 
     const handleChange = e => {

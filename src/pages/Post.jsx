@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react"
 import { Link, useLoaderData } from "react-router-dom"
-
-
 
 function Post() {
 
