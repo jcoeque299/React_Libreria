@@ -15,14 +15,14 @@ function Post() {
                     <Link to={`/respond/${post.id}`}>Responder</Link>
                 </article>
                 {
-                        responses.length > 0? (
-                            responses.map((response) => (
-                                <article className="response">
-                                    <p>{response.text}</p>
-                                    </article>
-                            ))
-                        ): (<p className="noResults"></p>)
-                    }           
+                    responses.length > 0? (
+                        responses.map((response) => (
+                            <article className="response">
+                                <p>{response.text}</p>
+                                </article>
+                        ))
+                    ): (<p className="noResults"></p>)
+                }           
             </section>
         </>
     )

@@ -21,7 +21,6 @@ function PostForm() {
             text: post.text,
             responses: []
         }
-        console.log(savePost)
         posts = [...posts, savePost]
         localStorage.setItem("posts", JSON.stringify(posts))
         return navigate(`/post/${savePost.id}`)
@@ -37,8 +36,7 @@ function PostForm() {
 
     return (
         <>
-            <section className="form">
-                
+            <section className="form">   
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <input

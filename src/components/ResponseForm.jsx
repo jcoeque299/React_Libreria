@@ -5,6 +5,8 @@ function ResponseForm(postID) {
 
     const posts = JSON.parse(localStorage.getItem("posts")) ?? []
 
+    const postid = postID.postID
+
     const navigate = useNavigate()
 
     const [response, setResponse] = useState({
@@ -19,12 +21,12 @@ function ResponseForm(postID) {
             text: response.text
         }
         posts.forEach((post) => {
-            if (post.id === parseInt(postID.postID)) {
+            if (post.id === parseInt(postid)) {
                 post.responses = [...post.responses, saveResponse]
             }
         })
         localStorage.setItem("posts", JSON.stringify(posts))
-        return navigate(`/post/${postID.postID}`)
+        return navigate(`/post/${postid}`)
     }
 
     const handleChange = e => {
