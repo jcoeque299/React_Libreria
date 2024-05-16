@@ -4,8 +4,10 @@ function SearchImage(cover) {
     
     const [isLoading, setIsLoading] = useState(true)
 
+    const coverURL = cover.cover
+
     useEffect(() => {
-        if (cover.cover === "") {
+        if (coverURL === "") {
             setIsLoading(false)
         }
     }, [])
@@ -13,10 +15,9 @@ function SearchImage(cover) {
     return (
         <>
             {isLoading ? <div className="loading-image"><span className="loader"></span></div> : null}
-            <img src={cover.cover} onLoad={() => setIsLoading(false)}></img>
+            <img src={coverURL} onLoad={() => setIsLoading(false)}></img>
             
         </>
     )
 }
-//
 export default SearchImage
