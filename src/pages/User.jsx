@@ -15,9 +15,25 @@ function User() {
                 email: user.email,
             })
         }
+        else {
+            getUserData()
+        }
     }, [])
 
-    
+    const getUserData = async() => {
+        const data = await fetch("http://localhost:8000/api/user", {
+            method: 'get',
+            headers: {
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            }})
+            const responseA = await data.json()
+            console.log(responseA)
+            setUser({
+                id: responseA.id,
+                name: responseA.name,
+                email: responseA.email
+        })
+    }
 
     return (
         <>

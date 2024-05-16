@@ -13,6 +13,7 @@ import Respond, { loaderResponse } from "../pages/Respond";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import User from "../pages/User";
+import Profile, {loaderProfile} from "../pages/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -74,7 +75,12 @@ export const router = createBrowserRouter([
                         path: "/respond/:id",
                         element: <Respond/>,
                         loader: loaderResponse
-                    }
+                    },
+                    {
+                        path: "/profile/:userName",
+                        element: <Profile/>,
+                        loader: loaderProfile
+                    },
                 ]
             }
         ]
