@@ -10,6 +10,9 @@ import LayoutPublic from "../layouts/LayoutPublic";
 import CreatePost from "../pages/CreatePost";
 import Post, {loaderPost} from "../pages/Post";
 import Respond, { loaderResponse } from "../pages/Respond";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import User from "../pages/User";
 
 export const router = createBrowserRouter([
     {
@@ -49,6 +52,18 @@ export const router = createBrowserRouter([
                     {
                         path: "/publish",
                         element: <CreatePost/>
+                    },
+                    {
+                        path: "/login",
+                        element: <Login/>
+                    },
+                    {
+                        path: "/register",
+                        element: <Register/>
+                    },
+                    {
+                        path: "/user",
+                        element: <User/>
                     },
                     {
                         path: "/post/:id",

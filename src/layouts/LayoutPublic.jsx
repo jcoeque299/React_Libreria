@@ -1,8 +1,15 @@
 import { Link, Outlet } from "react-router-dom"
+import { createContext } from "react"
+import { useState } from "react"
+
+export const UserContext = createContext()
 
 function LayoutPublic() {
+
+    const [user, setUser] = useState(null)
+
     return (
-      <>
+      <UserContext.Provider value = {[user, setUser]}>
         <header>
         <nav>
             <figure>
@@ -44,7 +51,7 @@ function LayoutPublic() {
             </figure>
           </aside>
         </footer>
-      </>
+      </UserContext.Provider>
     )
   }
   
