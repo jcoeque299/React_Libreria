@@ -8,22 +8,25 @@ function PostForm() {
     const navigate = useNavigate()
 
     const [post, setPosts] = useState({
-        id: "",
         title: "",
         text: ""
     })
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        const savePost = {
-            id: new Date().getTime(),
-            title: post.title,
-            text: post.text,
-            responses: []
-        }
-        posts = [...posts, savePost]
-        localStorage.setItem("posts", JSON.stringify(posts))
-        return navigate(`/post/${savePost.id}`)
+        const data = await fetch(`http://localhost:8000/api/posts`, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            },
+            body: JSON.stringify({
+                title: post.title,
+                text: post.text
+            })
+        })
+        return navigate(`/forum`)
     }
 
     const handleChange = e => {

@@ -4,7 +4,7 @@ import SearchImage from "../components/SearchImage"
 import { useState } from "react"
 
 function Favorites() {
-  const {favouritedBooks} = useLoaderData()
+  const favouritedBooks = useLoaderData()
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -16,10 +16,10 @@ function Favorites() {
             {
                 favouritedBooks.length > 0? (
                     favouritedBooks.map((favouritedBook) => (
-                        <article key={favouritedBook.key} className="book-card">
-                            <SearchImage cover={`https://covers.openlibrary.org/b/id/${favouritedBook.cover_i}-M.jpg`}/>
-                            <p>{favouritedBook.title}</p>
-                            <Link to={`/book/${favouritedBook.key.substr(7)}`} onClick={() => setIsLoading(true)}>Ver libro</Link>
+                        <article key={favouritedBook.bookId} className="book-card">
+                            <SearchImage cover={`https://covers.openlibrary.org/b/id/${favouritedBook.bookCover}-M.jpg`}/>
+                            <p>{favouritedBook.bookTitle}</p>
+                            <Link to={`/book/${favouritedBook.bookId}`} onClick={() => setIsLoading(true)}>Ver libro</Link>
                         </article>
                     ))
                 ): (<p className="noResults">Sin favoritos</p>)
@@ -31,7 +31,15 @@ function Favorites() {
   
   export default Favorites
 
-  export const loaderFavourites = () => {
-    const favouritedBooks = JSON.parse(localStorage.getItem("favouritedBooks")) ?? []
-    return {favouritedBooks}
+  export const loaderFavourites = async() => {
+    const data = await fetch(`http://localhost:8000/api/saved`, {
+          method: "get",
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+          },
+      })
+    const favouritedBooks = await data.json()
+    return favouritedBooks
   }

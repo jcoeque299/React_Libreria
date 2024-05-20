@@ -3,29 +3,28 @@ import { useNavigate } from "react-router-dom"
 
 function ResponseForm(postID) {
 
-    const posts = JSON.parse(localStorage.getItem("posts")) ?? []
-
     const postid = postID.postID
 
     const navigate = useNavigate()
 
     const [response, setResponse] = useState({
-        id: "",
         text: ""
     })
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        const saveResponse = {
-            id: new Date().getTime(),
-            text: response.text
-        }
-        posts.forEach((post) => {
-            if (post.id === parseInt(postid)) {
-                post.responses = [...post.responses, saveResponse]
-            }
+        const data = await fetch(`http://localhost:8000/api/comments/${postid}`, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+            },
+            body: JSON.stringify({
+                text: response.text
+            })
         })
-        localStorage.setItem("posts", JSON.stringify(posts))
+        const responseA = await data.json()
         return navigate(`/post/${postid}`)
     }
 

@@ -23,9 +23,13 @@ function Profile() {
 
     return (
         <>
-        <p>{profileData.response.message ? <>{profileData.response.message}</>: <>{profileData.response.name}</>}</p>
-        {showButton ? <button onClick={() => sendFriendRequest(profileData.params)}>Enviar solicitud de amistad</button> : null}
-        <Link to={`/message/${profileData.params}`}>Enviar mensaje</Link>
+        <section className="post-info">
+            <article className="post">
+                <p>{profileData.response.message ? <>{profileData.response.message}</>: <>{profileData.response.name}</>}</p>
+                {showButton ? <button className="friendRequest" onClick={() => sendFriendRequest(profileData.params)}>Enviar solicitud de amistad</button> : null}
+                <Link to={`/sendmessage/${profileData.params}`}>Enviar mensaje</Link>
+            </article>
+        </section>
         </>
     )
 }

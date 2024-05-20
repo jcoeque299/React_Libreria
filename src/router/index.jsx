@@ -4,7 +4,7 @@ import Search from "../pages/Search";
 import Book, {loaderBook} from "../pages/Book";
 import Favorites, {loaderFavourites} from "../pages/Favorites";
 import Contact from "../pages/Contact";
-import Forum from "../pages/Forum";
+import Forum, {loaderForum} from "../pages/Forum";
 import NotFound from "../pages/NotFound";
 import LayoutPublic from "../layouts/LayoutPublic";
 import CreatePost from "../pages/CreatePost";
@@ -51,7 +51,8 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: "/forum",
-                        element: <Forum/>
+                        element: <Forum/>,
+                        loader: loaderForum
                     },
                     {
                         path: "/publish",

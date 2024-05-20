@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function Message() {
 
@@ -6,9 +7,13 @@ function Message() {
 
     return (
         <>
-            <h2>{message.name}</h2>
-            <h3>{message.title}</h3>
-            <p>{message.text}</p>
+        <section className="message">
+            <article className="message-info">
+                <Link to={`/profile/${message.name}`}><h3>{message.name}</h3></Link>
+                <h4>{message.title}</h4>
+                <p>{message.text}</p>
+            </article>
+        </section>     
         </>
     )
 }

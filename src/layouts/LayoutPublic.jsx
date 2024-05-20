@@ -19,9 +19,13 @@ function LayoutPublic() {
             <ul className="links">
               <li><Link to={"/"}>Inicio</Link></li>
               <li><Link to={"/search"}>Búsqueda</Link></li>
-              <li><Link to={"/favorites"}>Favoritos</Link></li>
               <li><Link to={"/forum"}>Foro</Link></li>
               <li><Link to={"/contact"}>Contacto</Link></li>
+              {user? <li><Link to={"/favorites"}>Favoritos</Link></li>:null}
+              {user? <li><Link to={"/user"}>Perfil</Link></li>:null}
+              {user? <li><Link to={"/messages"}>Mensajes</Link></li>:null}
+              {!user? <li><Link to={"/login"}>Log in</Link></li>:null}
+              {!user? <li><Link to={"/register"}>Registrarse</Link></li>:null}
             </ul>
         </nav>
         </header>

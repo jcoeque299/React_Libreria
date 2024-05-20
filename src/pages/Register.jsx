@@ -57,7 +57,8 @@ function Register() {
 
     return (
         <>
-            <form onSubmit={register}>
+            <h2>Registrarse</h2>
+            <form onSubmit={register} className="form">
                 <fieldset>
                     <input
                         name="name"
@@ -70,6 +71,7 @@ function Register() {
                 <fieldset>
                     <input 
                         name="email"
+                        placeholder="Introduce email"
                         value={newUser.email}
                         type="text"
                         onChange={handleChange}
@@ -78,6 +80,7 @@ function Register() {
                 <fieldset>
                     <input 
                         name="password"
+                        placeholder="Introduce contraseña"
                         value={newUser.password}
                         type="password"
                         onChange={handleChange}
@@ -86,7 +89,7 @@ function Register() {
                 <fieldset>
                     <button
                         type="submit"
-                    >Buscar</button>
+                    >Registrarse</button>
                 </fieldset>              
             </form>
         </>

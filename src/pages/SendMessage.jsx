@@ -1,9 +1,12 @@
 import { useState } from "react"
 import { useLoaderData } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 function SendMessage() {
 
     const userName = useLoaderData();
+
+    const navigate = useNavigate()
 
     const [message, setMessage] = useState({
         title: "",
@@ -24,6 +27,7 @@ function SendMessage() {
                 text: message.text
             })
         })
+        navigate(`/profile/${userName}`)
     }
 
     const handleChange = e => {
@@ -36,10 +40,11 @@ function SendMessage() {
 
     return (
         <>
-            <form onSubmit={sendMessage}>
+            <form onSubmit={sendMessage} className="form">
                 <fieldset>
                     <input 
                         name="title"
+                        placeholder="Introduce titulo"
                         value={message.title}
                         type="title"
                         onChange={handleChange}
@@ -48,6 +53,7 @@ function SendMessage() {
                 <fieldset>
                     <input 
                         name="text"
+                        placeholder="Introduce texto"
                         value={message.text}
                         type="text"
                         onChange={handleChange}

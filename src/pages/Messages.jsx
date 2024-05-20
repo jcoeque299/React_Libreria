@@ -6,17 +6,22 @@ function Messages() {
     const messages = useLoaderData()
 
     return (
-        <>{
+        <>
+        <h2>Mensajes</h2>
+        <section className="message">
+        {
             messages.length > 0? (
                     messages.map((message) => (
-                        <article key={message.id}>
-                            <h2>{message.name}</h2>
-                            <h3>{message.title}</h3>
+                        <article key={message.id} className="message-info">
+                            <h3>{message.name}</h3>
+                            <h4>{message.title}</h4>
                             <Link to={`/message/${message.id}`}>Ver mensaje</Link>
                         </article>
                     ))
-                ): (<p className="noResults"></p>)
-            }</>
+                ): (<p className="noResults">No hay mensajes</p>)
+            }
+        </section>
+        </>
     )
 }
 

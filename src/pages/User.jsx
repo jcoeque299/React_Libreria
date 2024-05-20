@@ -9,7 +9,7 @@ function User() {
 
     const [friends, setFriends] = useState("")
 
-    const [profile, setProfile] = useState(null)
+    const [profile, setProfile] = useState("")
 
     useEffect(() => {
         if (user) {
@@ -17,8 +17,6 @@ function User() {
                 name: user.name,
                 email: user.email,
             })
-        }
-        else {
             getUserData()
         }
     }, [])
@@ -70,35 +68,41 @@ function User() {
     }
 
     return (
-        <>
-            {user? <><p>{user.name}</p><p>{user.email}</p></>: null}
-            <h2>Amigos</h2>
-            <>{
-                friends.length > 0? (
-                        friends.map((friend) => (
-                            friend.accepted?
-                            <article key={friend.parentName === user.name? friend.childName : friend.parentName}>
-                                <h3>{friend.parentName === user.name? friend.childName : friend.parentName}</h3>
-                                <Link to={`/profile/${friend.parentName === user.name? friend.childName : friend.parentName}`}>Ver perfil</Link>
-                                <button onClick={() => removeFriend(friend.parentName === user.name? friend.childName : friend.parentName)}>Eliminar amigo</button>
-                            </article>
-                        :null))
-                    ): (<p className="noResults"></p>)
-            }</>
-            <h2>Solicitudes de amistad</h2>
-            <>{friends.length > 0? (
-                        friends.map((friend) => (
-                            !friend.accepted?
-                            <article key={friend.parentName === user.name? friend.childName : friend.parentName}>
-                                <h3>{friend.parentName === user.name? friend.childName : friend.parentName}</h3>
-                                <Link to={`/profile/${friend.parentName === user.name? friend.childName : friend.parentName}`}>Ver perfil</Link>
-                                <button onClick={() => acceptRequest(friend.parentName === user.name? friend.childName : friend.parentName)}>Aceptar solicitud</button>
-                                <button onClick={() => removeFriend(friend.parentName === user.name? friend.childName : friend.parentName)}>Eliminar amigo</button>
-                            </article>
-                        :null))
-                    ): (<p className="noResults"></p>)}
-            </>
-        </>
+        <><section className="post-info">
+            <article className="post">
+                {user? <><h2>Nickname</h2><p>{user.name}</p><h2>Email</h2><p>{user.email}</p></>: null}
+                <h2>Amigos</h2>
+                <>{
+                    friends.length > 0? (
+                            friends.map((friend) => (
+                                friend.accepted?
+                                <article key={friend.parentName === user.name? friend.childName : friend.parentName}>
+                                    <h3>{friend.parentName === user.name? friend.childName : friend.parentName}</h3>
+                                    <Link to={`/profile/${friend.parentName === user.name? friend.childName : friend.parentName}`}>Ver perfil</Link>
+                                    <button onClick={() => removeFriend(friend.parentName === user.name? friend.childName : friend.parentName)}>Eliminar amigo</button>
+                                </article>
+                            :null))
+                        ): (<p className="noResultsProfile">No hay amistades</p>)
+                }</>
+            </article>
+            <article className="post">
+                <h2>Solicitudes de amistad</h2>
+                <>{friends.length > 0? (
+                            friends.map((friend) => (
+                                !friend.accepted?
+                                <article key={friend.parentName === user.name? friend.childName : friend.parentName}>
+                                    <h3>{friend.parentName === user.name? friend.childName : friend.parentName}</h3>
+                                    <Link to={`/profile/${friend.parentName === user.name? friend.childName : friend.parentName}`}>Ver perfil</Link>
+                                    <button onClick={() => acceptRequest(friend.parentName === user.name? friend.childName : friend.parentName)}>Aceptar solicitud</button>
+                                    <button onClick={() => removeFriend(friend.parentName === user.name? friend.childName : friend.parentName)}>Eliminar amigo</button>
+                                </article>
+                            :null))
+                        ): (<p className="noResultsProfile">No hay solicitudes de amistad</p>)}
+                </>
+            </article>
+            
+        </section></>
+            
     )
 }
 

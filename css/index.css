@@ -269,6 +269,10 @@ main section h2 {
     text-align: center;
 }
 
+.noResultsProfile {
+    margin: 0 auto 20em auto;
+}
+
 .noPosts {
     margin: 0 auto 10em auto;
     text-align: center;
@@ -361,6 +365,25 @@ main section h2 {
     margin-bottom: 15em;
 }
 
+.message {
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    margin: 5em auto 15em auto;
+    background-color: #D4A272;
+    padding: 1em;
+    width: 58%;
+    border-radius: 15px;
+}
+
+.message:has(.noResults) {
+    background-color: #D2B498;
+}
+
+.message-info {
+    margin: 1em;
+}
+
 .post, .response {
     display: flex;
     flex-wrap: wrap;
@@ -383,6 +406,15 @@ main section h2 {
     margin-bottom: 2em;
     width: 100%;
     text-align: start;
+    display: block;
+}
+.post h3 {
+    font-size: 20px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+    text-align: start;
+    display: block;
 }
 
 .post a {
@@ -392,6 +424,26 @@ main section h2 {
     color: black;
     line-height: 3em;
     padding: 0.25em;
+}
+
+.post button {
+    max-width: 75%;
+    background-color: #a87f59;
+    border-radius: 15px;
+    color: black;
+    line-height: 3em;
+    padding: 0.25em;
+    border: 0;
+    cursor: pointer;
+}
+
+.post button:hover {
+    color: white;
+}
+
+.post-info .post .post-username {
+    background-color: #D4A272;
+    width: 100%;
 }
 
 .post a:hover {

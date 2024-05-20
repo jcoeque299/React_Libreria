@@ -56,10 +56,12 @@ function Login() {
     return (
         <>
             <>
-            <form onSubmit={login}>
+            <h2>Iniciar sesion</h2>
+            <form onSubmit={login} className="form">
                 <fieldset>
                     <input 
                         name="email"
+                        placeholder="Introduce email"
                         value={newUser.email}
                         type="text"
                         onChange={handleChange}
@@ -68,6 +70,7 @@ function Login() {
                 <fieldset>
                     <input 
                         name="password"
+                        placeholder="Introduce contraseña"
                         value={newUser.password}
                         type="password"
                         onChange={handleChange}
@@ -76,7 +79,7 @@ function Login() {
                 <fieldset>
                     <button
                         type="submit"
-                    >Buscar</button>
+                    >Log in</button>
                 </fieldset>              
             </form>
         </>
