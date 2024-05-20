@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 function Profile() {
@@ -25,6 +25,7 @@ function Profile() {
         <>
         <p>{profileData.response.message ? <>{profileData.response.message}</>: <>{profileData.response.name}</>}</p>
         {showButton ? <button onClick={() => sendFriendRequest(profileData.params)}>Enviar solicitud de amistad</button> : null}
+        <Link to={`/message/${profileData.params}`}>Enviar mensaje</Link>
         </>
     )
 }

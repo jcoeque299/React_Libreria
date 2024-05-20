@@ -14,6 +14,9 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import User from "../pages/User";
 import Profile, {loaderProfile} from "../pages/Profile";
+import SendMessage, {loaderSendMessage} from "../pages/SendMessage";
+import Messages, {loaderMessages} from "../pages/Messages";
+import Message, {loaderMessage} from "../pages/Message";
 
 export const router = createBrowserRouter([
     {
@@ -65,6 +68,21 @@ export const router = createBrowserRouter([
                     {
                         path: "/user",
                         element: <User/>
+                    },
+                    {
+                        path: "/messages",
+                        element: <Messages/>,
+                        loader: loaderMessages
+                    },
+                    {
+                        path: "/message/:id",
+                        element: <Message/>,
+                        loader: loaderMessage
+                    },
+                    {
+                        path: "/sendmessage/:userName",
+                        element: <SendMessage/>,
+                        loader: loaderSendMessage
                     },
                     {
                         path: "/post/:id",
