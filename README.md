@@ -4,6 +4,17 @@ Mi proyecto consiste en una página web para buscar libros, por título o autor,
 
 Enlace a la página desplegada: https://mybrary-react.netlify.app/
 
+## Mejoras realizadas
+
++ Backend y base de datos: Todas las funcionalidades que necesitaban de almacenamiento de datos ahora utilizan una base de datos con una API en lugar de ser guardados en el localstorage del navegador
++ Inicio de sesión y registro: Es posible iniciar sesión y registrarse en la página
++ Favoritos por usuario: Ahora los libros favoritos son individuales por cada usuario registrado, en lugar de ser global
++ Perfiles de usuarios: Se ha implementado la posibilidad de ver perfiles de usuario de otras personas
++ Sistema de amistades: Es posible agregar a otros usuarios como amigos en la página. Esto permitirá ver información sobre este usuario en su página de perfil
++ Mensajería: Implementado sistema de mensajes entre usuarios
++ Valoración de libros: Se ha cambiado el sistema de valoración de forma que ahora se usa uno propio en lugar del sistema de la API de OpenLibrary. Ahora los usuarios podrán valorar los libros con una nota del 1 al 5, y en la página de cada libro se devolverá la media de las notas de todos los usuarios
++ Mejoras en posts y comentarios: Ahora los posts y comentarios muestran el usuario que los ha creado. Hacer click en el nombre del usuario creador de un post o comentario redirigirá a su perfil
+
 ## Instrucciones de instalación y configuración
 
 ### Frontend
